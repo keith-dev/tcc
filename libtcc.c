@@ -1509,10 +1509,16 @@ static int rt_get_caller_pc(unsigned long *paddr,
 
     if (level == 0) {
         /* XXX: only support linux */
+#if defined(__FreeBSD__)
+#else
         *paddr = uc->uc_mcontext.gregs[REG_RIP];
+#endif
         return 0;
     } else {
+#if defined(__FreeBSD__)
+#else
         fp = uc->uc_mcontext.gregs[REG_RBP];
+#endif
         for(i=1;i<level;i++) {
             /* XXX: check address validity with program info */
             if (fp <= 0x1000)
