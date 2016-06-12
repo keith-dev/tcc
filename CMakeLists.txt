@@ -60,9 +60,9 @@ endif ( WIN32 AND NOT CYGWIN )
 add_definitions ( ${NATIVE_TARGET} )
 
 # Set libraries.
-if ( NOT WIN32 )
+if ( NOT WIN32 AND NOT BSD )
   link_libraries ( -ldl )
-endif ( NOT WIN32 )
+endif ( NOT WIN32 AND NOT BSD )
 
 # Set libtcc1 sources and tcc arguments
 set ( LIBTCC1_SRC lib/libtcc1.c )

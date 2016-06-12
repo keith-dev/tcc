@@ -47,6 +47,13 @@ endif ()
 message ( "DIST_DEPENDS: ${DIST_DEPENDS}")
 ## 2DO: Parse DIST_DEPENDS and try to install Dependencies with automatically using externalproject_add
 
+## Additional Platfom defines
+#
+if ( CMAKE_SYSTEM_NAME STREQUAL FreeBSD )
+  set ( FREEBSD TRUE )
+  set ( BSD TRUE )
+  message( STATUS "Platform BSD" )
+endif ()
 
 ## INSTALL DEFAULTS (Relative to CMAKE_INSTALL_PREFIX)
 # Primary paths
